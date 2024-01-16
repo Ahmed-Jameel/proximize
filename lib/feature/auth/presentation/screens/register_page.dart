@@ -1,26 +1,23 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:proximize/components/default_button.dart';
-import 'package:proximize/screens/privacy_policy.dart';
-import 'package:proximize/screens/register_page.dart';
-import 'package:proximize/screens/terms_and_conditions_page.dart';
+import '../widgets/default_button.dart';
+import 'login_page.dart';
+import 'privacy_policy.dart';
+import 'terms_and_conditions_page.dart';
 
-
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-
+class _RegisterPageState extends State<RegisterPage> {
   bool isHiddenPassword = true;
+
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -32,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Welcome back',
+                  'Create Account',
                   style: TextStyle(
                     fontSize: 34.0,
                     fontWeight: FontWeight.bold,
@@ -42,7 +39,27 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 40.0,
               ),
-
+              TextFormField(
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(
+                    Icons.person_2_outlined,
+                  ),
+                  hintText: 'Username',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16.0),
+                    borderSide: const BorderSide(
+                      color: Colors.transparent,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16.0),
+                    borderSide: const BorderSide(
+                      color: Color(0xff805ad1),
+                    ),
+                  ),
+                ),
+                keyboardType: TextInputType.name,
+              ),
               TextFormField(
                 decoration: InputDecoration(
                   prefixIcon: const Icon(
@@ -71,9 +88,11 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   suffixIcon: IconButton(
                     icon: Icon(
-                      isHiddenPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                      isHiddenPassword
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
                     ),
-                    onPressed: (){
+                    onPressed: () {
                       setState(() {
                         isHiddenPassword = !isHiddenPassword;
                       });
@@ -114,12 +133,13 @@ class _LoginPageState extends State<LoginPage> {
                       style: const TextStyle(
                         color: Color(0xff805ad1),
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                              return const TermsAndConditions();
-                            }));
-                      },
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const TermsAndConditions();
+                          }));
+                        },
                     ),
                     const TextSpan(
                       text: 'and ',
@@ -129,12 +149,13 @@ class _LoginPageState extends State<LoginPage> {
                       style: const TextStyle(
                         color: Color(0xff805ad1),
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                              return const PrivacyPolicy();
-                            }));
-                      },
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const PrivacyPolicy();
+                          }));
+                        },
                     ),
                   ],
                 ),
@@ -143,13 +164,10 @@ class _LoginPageState extends State<LoginPage> {
                 height: 25.0,
               ),
               DefaultButton(
-                label: 'Sign In',
+                label: 'Continue',
                 backgroundColor: const Color(0xff805ad1),
                 onPressing: () {},
               ),
-              TextButton(onPressed: (){}, child: const Text(
-                'Forgot Password?'
-              ),),
               const Padding(
                 padding: EdgeInsets.symmetric(
                   vertical: 32.0,
@@ -217,10 +235,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   children: [
                     const TextSpan(
-                      text: 'Don\'t have an account?',
+                      text: 'Have an account?',
                     ),
                     TextSpan(
-                      text: 'Sign Up',
+                      text: 'Sign In',
                       style: const TextStyle(
                         color: Color(0xff805ad1),
                       ),
@@ -228,8 +246,8 @@ class _LoginPageState extends State<LoginPage> {
                         ..onTap = () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
-                                return const RegisterPage();
-                              }));
+                            return const LoginPage();
+                          }));
                         },
                     ),
                   ],

@@ -5,10 +5,11 @@ class OnBoardingModel {
   final String onBoardingDescription2;
   final String onBoardingDescription3;
 
-  const OnBoardingModel(
+  OnBoardingModel(
       {required this.image,
       required this.onBoardingTitle,
       required this.onBoardingDescription1,
       required this.onBoardingDescription2,
-      required this.onBoardingDescription3});
+      required this.onBoardingDescription3,
+      });
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:proximize/feature/auth/presentation/resources/color_manager.dart';
+import 'package:proximize/feature/auth/presentation/resources/styles_manager.dart';
 
 class OnBoardingDescription extends StatelessWidget {
   final String description;
@@ -12,9 +14,8 @@ class OnBoardingDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       description,
-      style: const TextStyle(
-        fontSize: 15.0,
-        color: Color(0xff99a4b4),
+      style:getLightStyle(
+        color: ColorsManager.grey,
       ),
     );
   }

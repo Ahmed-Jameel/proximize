@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:proximize/models/on_boarding_model.dart';
+import 'package:proximize/feature/auth/presentation/widgets/app_spaces.dart';
+import '../../data/model/onboarding.dart';
 import 'on_boarding_description.dart';
 import 'on_boarding_title.dart';
 
@@ -12,26 +13,22 @@ class PageViewComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          width: 300.0,
-          height: 300.0,
-          child: Image.asset(
+        AppSizedBoxes.getHorizontalAndVerticalSpace_300(
+          childWidget: Image.asset(
             model.image,
           ),
         ),
-         OnBoardingTitle(
+        OnBoardingTitle(
           title: model.onBoardingTitle,
         ),
-        const SizedBox(
-          height: 10.0,
-        ),
-         OnBoardingDescription(
+        AppSizedBoxes.getVerticalSpace_10(),
+        OnBoardingDescription(
           description: model.onBoardingDescription1,
         ),
-         OnBoardingDescription(
+        OnBoardingDescription(
           description: model.onBoardingDescription2,
         ),
-         OnBoardingDescription(
+        OnBoardingDescription(
           description: model.onBoardingDescription3,
         ),
       ],

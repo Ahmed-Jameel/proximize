@@ -1,21 +1,20 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:proximize/components/default_button.dart';
-import 'package:proximize/screens/login_page.dart';
-import 'package:proximize/screens/privacy_policy.dart';
-import 'package:proximize/screens/terms_and_conditions_page.dart';
+import '../widgets/default_button.dart';
+import 'privacy_policy.dart';
+import 'register_page.dart';
+import 'terms_and_conditions_page.dart';
 
-class RegisterPage extends StatefulWidget {
-   const RegisterPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _LoginPageState extends State<LoginPage> {
   bool isHiddenPassword = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,39 +25,18 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-               const Align(
-                 alignment: Alignment.centerLeft,
-                 child: Text(
-                  'Create Account',
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Welcome back',
                   style: TextStyle(
                     fontSize: 34.0,
                     fontWeight: FontWeight.bold,
                   ),
-                               ),
-               ),
+                ),
+              ),
               const SizedBox(
                 height: 40.0,
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(
-                    Icons.person_2_outlined,
-                  ),
-                  hintText: 'Username',
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16.0),
-                    borderSide: const BorderSide(
-                      color: Colors.transparent,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16.0),
-                    borderSide: const BorderSide(
-                      color: Color(0xff805ad1),
-                    ),
-                  ),
-                ),
-                keyboardType: TextInputType.name,
               ),
               TextFormField(
                 decoration: InputDecoration(
@@ -88,9 +66,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   suffixIcon: IconButton(
                     icon: Icon(
-                      isHiddenPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                      isHiddenPassword
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
                     ),
-                    onPressed: (){
+                    onPressed: () {
                       setState(() {
                         isHiddenPassword = !isHiddenPassword;
                       });
@@ -131,12 +111,13 @@ class _RegisterPageState extends State<RegisterPage> {
                       style: const TextStyle(
                         color: Color(0xff805ad1),
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                              return const TermsAndConditions();
-                            }));
-                      },
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const TermsAndConditions();
+                          }));
+                        },
                     ),
                     const TextSpan(
                       text: 'and ',
@@ -146,12 +127,13 @@ class _RegisterPageState extends State<RegisterPage> {
                       style: const TextStyle(
                         color: Color(0xff805ad1),
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                              return const PrivacyPolicy();
-                            }));
-                      },
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const PrivacyPolicy();
+                          }));
+                        },
                     ),
                   ],
                 ),
@@ -160,9 +142,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 25.0,
               ),
               DefaultButton(
-                label: 'Continue',
+                label: 'Sign In',
                 backgroundColor: const Color(0xff805ad1),
                 onPressing: () {},
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const Text('Forgot Password?'),
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(
@@ -231,10 +217,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   children: [
                     const TextSpan(
-                      text: 'Have an account?',
+                      text: 'Don\'t have an account?',
                     ),
                     TextSpan(
-                      text: 'Sign In',
+                      text: 'Sign Up',
                       style: const TextStyle(
                         color: Color(0xff805ad1),
                       ),
@@ -242,7 +228,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ..onTap = () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
-                            return const LoginPage();
+                            return const RegisterPage();
                           }));
                         },
                     ),

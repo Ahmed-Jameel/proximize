@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import '../resources/color_manager.dart';
 
 class DefaultButton extends StatelessWidget {
-
   final String label;
   final Color? backgroundColor;
   final Function()? onPressing;
@@ -9,26 +9,24 @@ class DefaultButton extends StatelessWidget {
   const DefaultButton({
     super.key,
     required this.label,
-    this.backgroundColor,
+    this.backgroundColor = ColorsManager.primary,
     this.onPressing,
   });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        fixedSize: const Size(300, 60.0),
-        elevation: 0.0,
-        backgroundColor: backgroundColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-      ),
+      style: Theme.of(context).elevatedButtonTheme.style!.copyWith(
+            backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                (states) => backgroundColor!),
+          ),
       onPressed: onPressing,
-      child:  Text(
+      child: Text(
         label,
         style: TextStyle(
-          color: backgroundColor != null ? const Color(0xffffffff) : const Color(0xff805ad1),
+          color: backgroundColor == ColorsManager.primary
+              ? ColorsManager.white
+              : ColorsManager.primary,
         ),
       ),
     );

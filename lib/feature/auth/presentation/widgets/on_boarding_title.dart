@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:proximize/feature/auth/presentation/resources/color_manager.dart';
+import 'package:proximize/feature/auth/presentation/resources/styles_manager.dart';
 
 class OnBoardingTitle extends StatelessWidget {
   final String title;
@@ -12,9 +14,8 @@ class OnBoardingTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: const TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 25.0,
+      style: getBoldStyle(
+        color: ColorsManager.black,
       ),
     );
   }
