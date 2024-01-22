@@ -20,7 +20,3 @@ class AppTextButton extends StatelessWidget {
     );
   }
 }
-
-/**/
-
-/**/

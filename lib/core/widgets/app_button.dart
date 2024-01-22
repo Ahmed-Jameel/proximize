@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+
 import '../resources/color_manager.dart';
 
-class DefaultButton extends StatelessWidget {
+class AppButton extends StatelessWidget {
   final String label;
   final Color? backgroundColor;
   final Function()? onPressing;
 
-  const DefaultButton({
+  const AppButton({
     super.key,
     required this.label,
     this.backgroundColor = ColorsManager.primary,

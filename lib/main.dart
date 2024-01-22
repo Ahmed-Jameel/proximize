@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'feature/auth/presentation/resources/theme_manager.dart';
-import 'feature/auth/presentation/screens/on_boarding_page.dart';
+import 'package:proximize/core/resources/routes_manager.dart';
+import 'core/resources/theme_manager.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,10 +11,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: GoRouting.router,
       theme: getApplicationTheme(),
       debugShowCheckedModeBanner: false,
-      home: OnBoardingPage(),
     );
   }
 }
+
+
+/*return MaterialApp(
+      theme: getApplicationTheme(),
+      debugShowCheckedModeBanner: false,
+      home: LoginPage(),
+    );*/

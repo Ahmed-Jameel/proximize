@@ -12,9 +12,16 @@ dependencies:
   flutter:
     sdk: flutter
 
+  #Default set of icon assets used by Flutter cupertino widgets
   cupertino_icons: ^1.0.2
+  #Scrollable images slider.
+  carousel_slider: ^4.2.1
+  #Indicators for scrollable widgets
   smooth_page_indicator: ^1.1.0
+  #Draw SVG images
   flutter_svg: ^2.0.9
+  #For app navigation
+  go_router: ^13.0.1
 
 dev_dependencies:
   flutter_test:
