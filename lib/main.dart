@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:proximize/core/resources/routes_manager.dart';
 import 'core/resources/theme_manager.dart';
 
@@ -11,10 +12,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: GoRouting.router,
-      theme: getApplicationTheme(),
-      debugShowCheckedModeBanner: false,
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (_, child) {
+        return MaterialApp.router(
+          routerConfig: GoRouting.router,
+          theme: getApplicationTheme(),
+          debugShowCheckedModeBanner: false,
+        );
+      },
     );
   }
 }

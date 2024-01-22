@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../resources/values.dart';
 import '../resources/color_manager.dart';
@@ -49,7 +50,7 @@ class AppTextField extends StatelessWidget {
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSizeManager.s16),
+          borderRadius: BorderRadius.circular(AppSizeManager.s16.w),
           borderSide: const BorderSide(
             color: ColorsManager.primary,
           ),

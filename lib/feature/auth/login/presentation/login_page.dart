@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/resources/values.dart';
@@ -26,90 +27,92 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(AppPaddingManager.p32),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  StringsManager.welcomeBack,
-                  style: getBoldStyle(fontSize: FontSizeManager.s34),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(AppPaddingManager.p16.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                AppSizedBoxes.getVerticalSizedBox_40(),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    StringsManager.welcomeBack,
+                    style: getBoldStyle(fontSize: FontSizeManager.s34),
+                  ),
                 ),
-              ),
-              AppSizedBoxes.getVerticalSizedBox_40(),
-              AppTextField(
-                prefixIcon: Icons.email_outlined,
-                hintText: StringsManager.emailAddress,
-                textInputType: TextInputType.emailAddress,
-              ),
-              AppTextField(
-                prefixIcon: Icons.lock_outline,
-                hintText: StringsManager.password,
-                textInputType: TextInputType.visiblePassword,
-                isPasswordField: true,
-                isSecured: isHiddenPassword,
-                suffixIcon: isHiddenPassword
-                    ? Icons.visibility_off_outlined
-                    : Icons.visibility_outlined,
-                onPressingSuffixIcon: () {
-                  setState(() {
-                    isHiddenPassword = !isHiddenPassword;
-                  });
-                },
-              ),
-              AppSizedBoxes.getVerticalSizedBox_10(),
-              AppSizedBoxes.getVerticalSizedBox_25(),
-              AppButton(
-                label: StringsManager.signIn,
-                backgroundColor: ColorsManager.primary,
-                onPressing: () {},
-              ),
-              TextButton(
-                onPressed: () {},
-                child: const Text(StringsManager.forgotPassword),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: AppPaddingManager.p32,
+                AppSizedBoxes.getVerticalSizedBox_40(),
+                AppTextField(
+                  prefixIcon: Icons.email_outlined,
+                  hintText: StringsManager.emailAddress,
+                  textInputType: TextInputType.emailAddress,
                 ),
-                child: Text(
-                  StringsManager.or,
+                AppTextField(
+                  prefixIcon: Icons.lock_outline,
+                  hintText: StringsManager.password,
+                  textInputType: TextInputType.visiblePassword,
+                  isPasswordField: true,
+                  isSecured: isHiddenPassword,
+                  suffixIcon: isHiddenPassword
+                      ? Icons.visibility_off_outlined
+                      : Icons.visibility_outlined,
+                  onPressingSuffixIcon: () {
+                    setState(() {
+                      isHiddenPassword = !isHiddenPassword;
+                    });
+                  },
                 ),
-              ),
-              AppElevatedButton(
-                image: ImagesManager.appleImage,
-                label: StringsManager.continueWithApple,
-              ),
-              AppElevatedButton(
-                image: ImagesManager.googleImage,
-                imageWidth: AppSizeManager.s25,
-                imageHeight: AppSizeManager.s25,
-                label: StringsManager.continueWithGoogle,
-              ),
-              AppSizedBoxes.getVerticalSizedBox_25(),
-              RichText(
-                text: TextSpan(
-                  style: getRichTextStyle(color: ColorsManager.black),
-                  children: [
-                    const TextSpan(
-                      text: StringsManager.doNotHaveAcc,
-                    ),
-                    TextSpan(
-                      text: StringsManager.signUp,
-                      style: const TextStyle(
-                        color: ColorsManager.primary,
+                AppSizedBoxes.getVerticalSizedBox_10(),
+                AppSizedBoxes.getVerticalSizedBox_25(),
+                AppButton(
+                  label: StringsManager.signIn,
+                  backgroundColor: ColorsManager.primary,
+                  onPressing: () {},
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(StringsManager.forgotPassword),
+                ),
+                 Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: AppPaddingManager.p32,
+                  ),
+                  child: const Text(
+                    StringsManager.or,
+                  ),
+                ),
+                AppElevatedButton(
+                  image: ImagesManager.appleImage,
+                  label: StringsManager.continueWithApple,
+                ),
+                AppElevatedButton(
+                  image: ImagesManager.googleImage,
+                  imageWidth: AppSizeManager.s25,
+                  imageHeight: AppSizeManager.s25,
+                  label: StringsManager.continueWithGoogle,
+                ),
+                AppSizedBoxes.getVerticalSizedBox_25(),
+                RichText(
+                  text: TextSpan(
+                    style: getRichTextStyle(color: ColorsManager.black),
+                    children: [
+                      const TextSpan(
+                        text: StringsManager.doNotHaveAcc,
                       ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () => context.go(Routes.register),
-                    ),
-                  ],
+                      TextSpan(
+                        text: StringsManager.signUp,
+                        style: const TextStyle(
+                          color: ColorsManager.primary,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => context.go(Routes.register),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

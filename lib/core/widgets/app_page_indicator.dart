@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../resources/values.dart';
@@ -18,11 +19,11 @@ class PageIndicator extends StatelessWidget {
   Widget build(BuildContext context) => AnimatedSmoothIndicator(
         activeIndex: activeIndex,
         count: count,
-        effect: const ExpandingDotsEffect(
+        effect:  ExpandingDotsEffect(
           activeDotColor: ColorsManager.primary,
           dotColor: ColorsManager.white,
-          dotHeight: AppSizeManager.s8,
-          dotWidth: AppSizeManager.s12,
+          dotHeight: AppSizeManager.s8.h,
+          dotWidth: AppSizeManager.s12.w,
         ),
       );
 }

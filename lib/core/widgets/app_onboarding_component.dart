@@ -21,7 +21,7 @@ class OnBoardingComponent extends StatelessWidget {
         Text(
           model.onBoardingTitle,
           style: getBoldStyle(
-            fontSize: FontSizeManager.s26,
+            fontSize: FontSizeManager.s22,
           ),
         ),
         AppSizedBoxes.getVerticalSizedBox_10(),

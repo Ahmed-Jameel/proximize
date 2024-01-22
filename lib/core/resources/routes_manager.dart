@@ -6,6 +6,7 @@ import '../../feature/auth/register/presentation/register_page.dart';
 import '../../feature/auth/onboarding/presentation/onboarding_page.dart';
 
 class Routes {
+  //TODO: review naming of the home screen
   static const String onboarding = '/';
   static const String login = '/login';
   static const String register = '/register';

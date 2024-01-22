@@ -15,7 +15,7 @@ TextStyle getLightStyle({
 }) =>
     TextStyle(
       color: color,
-      fontSize: FontSizeManager.s16,
+      fontSize: FontSizeManager.s14,
     );
 
 TextStyle getRichTextStyle({

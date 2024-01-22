@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../resources/values.dart';
@@ -26,7 +27,7 @@ class AppElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
-        fixedSize: const Size(AppSizeManager.s300, AppSizeManager.s60),
+        fixedSize: Size(AppSizeManager.s300.w, AppSizeManager.s60.h),
         elevation: AppSizeManager.s0,
         backgroundColor: ColorsManager.transparent,
         shadowColor: ColorsManager.transparent,
@@ -37,8 +38,8 @@ class AppElevatedButton extends StatelessWidget {
       onPressed: () {},
       //TODO: Can We modify sizes more???
       icon: SizedBox(
-        height: imageHeight,
-        width: imageWidth,
+        height: imageHeight.h,
+        width: imageWidth.w,
         child: SvgPicture.asset(
           image,
         ),

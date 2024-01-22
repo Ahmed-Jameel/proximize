@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../data/model/onboarding.dart';
@@ -60,7 +61,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               CarouselSlider(
                 options: CarouselOptions(
                   viewportFraction: AppSizeManager.s1,
-                  height: AppSizeManager.s450,
+                  height: AppSizeManager.s380.h,
                   enableInfiniteScroll: false,
                   scrollPhysics: const BouncingScrollPhysics(),
                   onPageChanged: (index, reason) {
